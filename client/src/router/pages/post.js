@@ -14,8 +14,16 @@ function Post() {
   }, [id]);
 
   return (
-    <div>
-      <Markdown>{post}</Markdown>
+    <div className="post-container">
+      <Markdown
+        components={{
+          img: ({ node, ...props }) => (
+            <img style={{ width: "100%" }} {...props} alt="" />
+          ),
+        }}
+      >
+        {post}
+      </Markdown>
     </div>
   );
 }

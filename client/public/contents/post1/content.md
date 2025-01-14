@@ -30,3 +30,6 @@ function greet(name) {
   console.log(`Hello, ${name}!`);
 }
 ```
+
+사진 테스트
+![테스트 사진](/contents/post1/img.jpg)
