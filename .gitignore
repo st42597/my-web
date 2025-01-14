@@ -1,0 +1,12 @@
+# ESLint 캐시 파일 제외
+.eslintcache
+
+# Node.js 모듈 디렉토리 제외
+node_modules/
+
+# 로그 파일 제외
+*.log
+
+# OS 관련 임시 파일 제외 (macOS, Windows)
+.DS_Store
+Thumbs.db
