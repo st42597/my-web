@@ -1,0 +1,42 @@
+.header-container {
+  width: 100%;
+  height: 50px;
+  border-bottom: 0.4px solid lightgray;
+}
+
+.header-nav {
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  height: 100%;
+}
+
+.header-title {
+  font-size: 1.5rem;
+}
+
+.sb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mr-24 {
+  margin-right: 24px;
+}
+
+.header-profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.text {
+  color: white;
+  text-decoration: none;
+}
+
+.text:hover {
+  color: rgb(128, 194, 164);
+}

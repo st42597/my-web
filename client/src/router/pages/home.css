@@ -1,0 +1,33 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+}
+
+.home-profile-img {
+  margin: 0px 40px 0px 0px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.home-profile-links {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.home-profile-links li a {
+  color: rgb(128, 194, 164);
+  text-decoration: none;
+}
+
+.home-profile-links li a:hover {
+  color: rgb(128, 194, 164, 80%);
+}
+
+.home-profile-description {
+  line-height: 1.8;
+}
