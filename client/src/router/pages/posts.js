@@ -11,13 +11,13 @@ function Posts() {
   }, []);
 
   const postList = posts.map((post) => (
-    <Link to={`${post}`} className="post-container" key={post}>
+    <Link to={`${post}`} className="postlist-element-container" key={post}>
       <h1>{post}</h1>
       <h2>subtitle</h2>
     </Link>
   ));
 
-  return <div className="posts-container">{postList}</div>;
+  return <div className="postlist-container">{postList}</div>;
 }
 
 export default Posts;
