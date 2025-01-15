@@ -1,4 +1,16 @@
 .post-container img {
   width: 100%;
-  object-fit: cover;
+}
+
+.post-container img[alt="badge"] {
+  width: 160px;
+}
+
+.post-container a {
+  color: rgb(128, 194, 164);
+  text-decoration: none;
+}
+
+.post-container a:hover {
+  color: rgb(128, 194, 164, 80%);
 }

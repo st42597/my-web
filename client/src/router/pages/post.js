@@ -1,6 +1,8 @@
+import "./post.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function Post() {
   const { id } = useParams("");
@@ -12,16 +14,11 @@ function Post() {
       .then((text) => setPost(text))
       .catch((error) => console.error("Error loading markdown:", error));
   }, [id]);
+  console.log(id);
 
   return (
     <div className="post-container">
-      <Markdown
-        components={{
-          img: ({ node, ...props }) => (
-            <img style={{ width: "100%" }} {...props} alt="" />
-          ),
-        }}
-      >
+      <Markdown remarkPlugins={[[remarkGfm, { singleTilde: false }]]}>
         {post}
       </Markdown>
     </div>

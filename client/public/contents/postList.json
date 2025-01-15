@@ -1,1 +1,22 @@
-["post1", "post2", "post3"]
+[
+  {
+    "title": "유사코 일대기",
+    "subTitle": "유사코를 풀면서 있었던 일과 알고리즘 공부에 대한 내 생각",
+    "url": "usaco-story"
+  },
+  {
+    "title": "포스트1",
+    "subTitle": "포스트1의 부제목",
+    "url": "post1"
+  },
+  {
+    "title": "포스트2",
+    "subTitle": "포스트2의 부제목",
+    "url": "post2"
+  },
+  {
+    "title": "포스트3",
+    "subTitle": "포스트3의 부제목",
+    "url": "post3"
+  }
+]
