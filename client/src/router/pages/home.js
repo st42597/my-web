@@ -1,9 +1,46 @@
 import "./home.css";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Home() {
+  const [recommendedPost, setRecommendedPost] = useState([]);
+  const [latestPost, setLatestPost] = useState([]);
+  useEffect(() => {
+    fetch("/contents/recommendedPostList.json")
+      .then((response) => response.json())
+      .then((data) => setRecommendedPost(data))
+      .catch((error) => console.error("Error loading posts:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("/contents/postList.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const tmp = [];
+        for (let i = 0; i < Math.min(6, data.length); i++) {
+          tmp.push(data[i]);
+        }
+        setLatestPost(tmp);
+      })
+      .catch((error) => console.error("Error loading posts:", error));
+  }, []);
+
+  const recommendedPostList = recommendedPost.map((post) => (
+    <Link to={`/posts/${post.url}`} key={post}>
+      <h1>{post.title}</h1>
+      <h2>{post.subTitle}</h2>
+    </Link>
+  ));
+
+  const latestPostList = latestPost.map((post) => (
+    <Link to={`/posts/${post.url}`} key={post}>
+      <h1>{post.title}</h1>
+      <h2>{post.subTitle}</h2>
+    </Link>
+  ));
+
   return (
-    <div className="App">
+    <div className="home-container">
       <article className="profile-container">
         <img className="home-profile-img" src="/profile.png" alt="profile" />
         <div>
@@ -28,6 +65,14 @@ function Home() {
           </ul>
         </div>
       </article>
+      <div>
+        <h1>추천 포스트</h1>
+        <div className="home-postlist-container">{recommendedPostList}</div>
+      </div>
+      <div>
+        <h1>최신 포스트</h1>
+        <div className="home-postlist-container">{latestPostList}</div>
+      </div>
     </div>
   );
 }

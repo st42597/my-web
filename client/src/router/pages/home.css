@@ -1,3 +1,9 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
 .profile-container {
   display: flex;
   justify-content: center;
@@ -35,6 +41,28 @@
 
 .home-profile-description {
   line-height: 1.8;
+}
+
+.home-postlist-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.home-postlist-container a {
+  display: block;
+  padding: 20px 10px;
+  width: 200px;
+  color: white;
+  text-decoration: none;
+  background-color: rgb(32, 32, 32);
+  border-radius: 10px;
+}
+
+.home-postlist-container a:hover {
+  background-color: rgb(24, 24, 24);
 }
 
 @media (max-width: 768px) {
