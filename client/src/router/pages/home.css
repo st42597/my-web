@@ -1,6 +1,11 @@
 .profile-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.profile-container h1 {
+  margin: 0;
 }
 
 .home-profile-img {
