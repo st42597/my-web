@@ -31,3 +31,9 @@
 .home-profile-description {
   line-height: 1.8;
 }
+
+@media (max-width: 768px) {
+  .home-profile-img {
+    display: none;
+  }
+}
