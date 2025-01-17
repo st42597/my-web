@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y cron
 
 # 만약 초기 인증서 발급을 위해 직접 명령을 실행하고 싶다면
 # 아래와 같이 명령을 변경할 수 있습니다.
-ENTRYPOINT ["certbot", "certonly", "--webroot", "-w", "/var/www/certbot", "-d", "willki.dev", "-d", "www.willki.dev"]
+ENTRYPOINT ["certbot", "certonly", "--force-renewal", "--webroot", "-w", "/var/www/certbot", "-d", "willki.dev", "-d", "www.willki.dev"]
 
 # 로그 및 인증서 정보를 저장할 디렉토리 마운트
 VOLUME ["/etc/letsencrypt", "/var/www/certbot"]
