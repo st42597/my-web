@@ -47,7 +47,7 @@ function Home() {
           <h1>조성현, Cho SeongHyeon - WillKi</h1>
           <p className="home-profile-description">
             웹 개발, 인공지능, Problem Solving(알고리즘)에 관심을 갖고 있는
-            전대학생입니다. <br /> 새로운 문제를 찾고 해결하는 과정을 즐기며
+            대학원생입니다. <br /> 새로운 문제를 찾고 해결하는 과정을 즐기며
             스스로를 발전시키는 과정을 좋아합니다.
           </p>
           <ul className="home-profile-links">
