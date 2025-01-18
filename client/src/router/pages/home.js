@@ -55,6 +55,11 @@ function Home() {
               <Link to="https://github.com/st42597">Github</Link>
             </li>
             <li>
+              <Link to="https://www.linkedin.com/in/seonghyeon-cho-a2904024b/">
+                LinkedIn
+              </Link>
+            </li>
+            <li>
               <Link to="https://www.acmicpc.net/user/st42597">BOJ</Link>
             </li>
             <li>
