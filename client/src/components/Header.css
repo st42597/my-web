@@ -26,12 +26,12 @@
   margin-right: 24px;
 }
 
-.text {
+.header-text {
   color: white;
   text-decoration: none;
 }
 
-.text:hover {
+.header-text:hover {
   color: rgb(128, 194, 164);
 }
 
