@@ -1,10 +1,11 @@
 import "./router.css";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "components/Header";
 import Home from "./pages/home";
 import Posts from "./pages/posts";
 import Post from "./pages/post";
 import About from "./pages/about";
+import Footer from "components/Footer";
 
 const AppLayout = () => (
   <>
@@ -12,6 +13,7 @@ const AppLayout = () => (
     <div className="content-container">
       <Outlet />
     </div>
+    <Footer />
   </>
 );
 
