@@ -6,7 +6,7 @@ function Header() {
     <header className="header-container">
       <nav className="header-nav sb">
         <Link to="/" className="header-title text">
-          WillKi's Blog
+          WillKi.dev
         </Link>
         <div className="sb">
           <Link to="/posts" className="mr-24 text">
