@@ -15,11 +15,6 @@ function Header() {
           <Link to="/about" className="mr-24 text">
             About
           </Link>
-          <img
-            className="header-profile-img"
-            src="/profile.png"
-            alt="profile"
-          ></img>
         </div>
       </nav>
     </header>
