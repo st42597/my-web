@@ -1,3 +1,8 @@
 .about-repository-card {
   margin: 20px 0px;
 }
+
+.about-repository-card img {
+  width: 100%;
+  max-width: 442px;
+}

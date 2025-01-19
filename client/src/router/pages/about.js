@@ -1,7 +1,7 @@
 import "./about.css";
 function About() {
   return (
-    <div>
+    <div className="about-container">
       <h1>Willki.dev</h1>
       <h2>2025년 1월 18일부터 서비스해오고 있는 개인 블로그입니다.</h2>
       <span>
