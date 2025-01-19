@@ -3,6 +3,8 @@ services:
     build:
       context: ./client
     container_name: client
+    volumes:
+      - ./client:/client
     ports:
       - "3000:3000"
     restart: always
