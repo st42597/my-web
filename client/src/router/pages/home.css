@@ -45,9 +45,9 @@
 
 .home-postlist-container {
   display: flex;
+  justify-content: flex-start;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 40px;
 }
 
