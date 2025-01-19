@@ -18,6 +18,7 @@ h2 {
 .postlist-element-container {
   display: block;
   width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 20px 20px;
   color: white;
