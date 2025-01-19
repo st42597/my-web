@@ -52,20 +52,20 @@ function Home() {
           </p>
           <ul className="home-profile-links">
             <li>
-              <Link to="https://github.com/st42597">Github</Link>
+              <a href="https://github.com/st42597">Github</a>
             </li>
             <li>
-              <Link to="https://www.linkedin.com/in/seonghyeon-cho-a2904024b/">
+              <a href="https://www.linkedin.com/in/seonghyeon-cho-a2904024b/">
                 LinkedIn
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="https://www.acmicpc.net/user/st42597">BOJ</Link>
+              <a href="https://www.acmicpc.net/user/st42597">BOJ</a>
             </li>
             <li>
-              <Link to="https://disco-colony-7af.notion.site/SeongHyeon-Cho-59ebacbf20a646b0a4b804f98db018d0">
+              <a href="https://disco-colony-7af.notion.site/SeongHyeon-Cho-59ebacbf20a646b0a4b804f98db018d0">
                 CV
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
