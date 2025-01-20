@@ -2,6 +2,7 @@ services:
   client:
     build:
       context: ./client
+      no_cache: true
     container_name: client
     volumes:
       - ./client:/client
