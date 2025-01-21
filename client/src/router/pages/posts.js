@@ -11,7 +11,11 @@ function Posts() {
   }, []);
 
   const postList = posts.map((post) => (
-    <Link to={`${post.url}`} className="postlist-element-container" key={post}>
+    <Link
+      to={`${post.url}`}
+      className="postlist-element-container"
+      key={post.url}
+    >
       <h1>{post.title}</h1>
       <h2>{post.subTitle}</h2>
     </Link>
