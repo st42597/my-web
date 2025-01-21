@@ -26,14 +26,14 @@ function Home() {
   }, []);
 
   const recommendedPostList = recommendedPost.map((post) => (
-    <Link to={`/posts/${post.url}`} key={post}>
+    <Link to={`/posts/${post.url}`} key={"recommended-" + post}>
       <h1>{post.title}</h1>
       <h2>{post.subTitle}</h2>
     </Link>
   ));
 
   const latestPostList = latestPost.map((post) => (
-    <Link to={`/posts/${post.url}`} key={post}>
+    <Link to={`/posts/${post.url}`} key={"latest-" + post}>
       <h1>{post.title}</h1>
       <h2>{post.subTitle}</h2>
     </Link>
