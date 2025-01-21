@@ -10,18 +10,8 @@
     "url": "my-problem-review1"
   },
   {
-    "title": "포스트1",
-    "subTitle": "포스트1의 부제목",
-    "url": "post1"
-  },
-  {
-    "title": "포스트2",
-    "subTitle": "포스트2의 부제목",
-    "url": "post2"
-  },
-  {
-    "title": "포스트3",
-    "subTitle": "포스트3의 부제목",
-    "url": "post3"
+    "title": "HTML에 대해 알아보자",
+    "subTitle": "HTML은 무엇이고 어떻게 사용해야 하는가",
+    "url": "learn-about-html"
   }
 ]
