@@ -21,6 +21,10 @@
   width: 160px;
 }
 
+.post-container img[alt="github-card"] {
+  width: 442px;
+}
+
 .post-container code {
   color: rgb(128, 194, 164);
 }

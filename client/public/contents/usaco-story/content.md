@@ -7,7 +7,7 @@
 다시 본론으로 돌아와서 이 오픈톡방에 USACO를 푸는 친구들을 따라 한 두 문제씩 풀어보게 되었고 ICPC라는 한국에서 가장 규모있는 대학생 대회에서 30위권이라는 괜찮은 순위에 오르게 되었다. 예전부터 나는 과외를 하며 내가 공부해왔던 방법과 방향을 학생들에게 가르치고 싶다는 생각이 있었는데 대학교 2학년을 졸업하고 3학년이 되려던 시기에 한 분의 도움으로 USACO를 가르치는 학원에서 강의를 할 수 있게 되었다. 2021년 말부터 시작했으니 2025년 기준으로는 벌써 5년차가 되었다.
 
 ![USACO 레포지토리](/contents/usaco-story/repo.png)
-[![badge](https://img.shields.io/badge/깃허브-Repository-blue?logo=github)](https://github.com/st42597/usaco-kor-solution)
+[![github-card](https://gh-card.dev/repos/st42597/usaco-kor-solution.svg)](https://github.com/st42597/usaco-kor-solution)
 
 쌓인 풀이들을 정리하기 위해 레포지토리를 작성해봤는데 생각보다 많은 관심으로 인해 내가 작성한 글 치고는 많은 스타를 받게 되었다. 물론 나와 면식이 있는 사람들이 다수이긴 하지만 관심을 받게 되니 더 많은 글을 작성하는 동기가 되었다.
 
