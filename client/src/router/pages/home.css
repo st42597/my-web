@@ -79,4 +79,8 @@
   .home-profile-img {
     display: none;
   }
+
+  .home-postlist-container a {
+    width: 100%;
+  }
 }
