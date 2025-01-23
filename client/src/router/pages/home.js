@@ -42,7 +42,7 @@ function Home() {
   return (
     <div className="home-container">
       <article className="profile-container">
-        <img className="home-profile-img" src="/profile.png" alt="profile" />
+        <img className="home-profile-img" src="/profile.webp" alt="profile" />
         <div>
           <h1>조성현, Cho SeongHyeon - WillKi</h1>
           <p className="home-profile-description">
