@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const { Pool } = require("pg");
 
@@ -6,48 +5,60 @@ const app = express();
 const port = 5000;
 
 const pool = new Pool({
-  user: "sh", // PostgreSQL 사용자명
-  host: "localhost", // PostgreSQL 서버 주소
-  database: "myDB", // 사용할 데이터베이스 이름
-  password: "1234", // 사용자 비밀번호
-  port: 5432, // PostgreSQL 기본 포트
+  user: "sh",
+  host: "db",
+  database: "mydb",
+  password: "1234",
+  port: 5432,
 });
 
-// JSON 요청 본문을 처리할 수 있도록 미들웨어 설정
+const checkDatabaseConnection = async () => {
+  try {
+    const client = await pool.connect();
+    console.log("Successfully connected to PostgreSQL");
+    client.release();
+  } catch (err) {
+    console.error("Error connecting to PostgreSQL", err);
+  }
+};
+
+checkDatabaseConnection();
+
 app.use(express.json());
 
-// 기본 루트 엔드포인트
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-// PostgreSQL에서 모든 사용자 데이터를 가져오는 엔드포인트
-app.get("/users", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM users");
-    res.json(result.rows); // 조회된 데이터 반환
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error retrieving users");
-  }
-});
-
-// 새로운 사용자 추가하는 엔드포인트
-app.post("/users", async (req, res) => {
-  const { name, email } = req.body;
+app.get("/comments", async (req, res) => {
   try {
     const result = await pool.query(
-      "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *",
-      [name, email]
+      "SELECT name, comment, created_at FROM comments ORDER BY id DESC"
     );
-    res.status(201).json(result.rows[0]); // 생성된 사용자 반환
+    res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error adding user");
+    res.status(500).send("Error retrieving comment");
   }
 });
 
-// 서버 실행
+app.post("/comments", async (req, res) => {
+  pool.query(
+    "CREATE TABLE IF NOT EXISTS comments (id SERIAL PRIMARY KEY, name VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, comment TEXT NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+  );
+  const { name, password, comment } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO comments (name, password, comment) VALUES ($1, $2, $3) RETURNING *",
+      [name, password, comment]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error adding comment");
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

@@ -4,6 +4,7 @@ import Header from "components/Header";
 import Home from "./pages/home";
 import Posts from "./pages/posts";
 import Post from "./pages/post";
+import Comment from "./pages/comment";
 import About from "./pages/about";
 import Footer from "components/Footer";
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/posts", element: <Posts /> },
       { path: "posts/:id", element: <Post /> },
+      { path: "/comment", element: <Comment /> },
       { path: "/about", element: <About /> },
     ],
   },

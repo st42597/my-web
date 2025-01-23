@@ -12,6 +12,9 @@ function Header() {
           <Link to="/posts" className="mr-24 header-text">
             Post
           </Link>
+          <Link to="comment" className="mr-24 header-text">
+            Comment
+          </Link>
           <Link to="/about" className="header-text">
             About
           </Link>

@@ -1,0 +1,75 @@
+.comment-typer {
+  display: flex;
+  justify-content: space-between;
+
+  border-radius: 10px;
+  background-color: rgb(24, 24, 24);
+}
+
+.comment-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+}
+
+.comment-info-container input {
+  box-sizing: border-box;
+  border: 0;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  background-color: rgb(24, 24, 24);
+  color: white;
+}
+
+.comment-textarea {
+  border: 0;
+  padding: 10px;
+  width: 100%;
+  height: 80px;
+  outline: none;
+  resize: none;
+  background-color: rgb(24, 24, 24);
+  color: white;
+}
+
+.comment-button {
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  min-width: 100px;
+  height: 100px;
+  background-color: rgb(128, 194, 164);
+  color: white;
+  cursor: pointer;
+}
+
+.comment-row-border {
+  width: 100%;
+  height: 0px;
+  border-bottom: 1px solid white;
+}
+
+.comment-col-border {
+  width: 0px;
+  height: 100px;
+  border-right: 1px solid white;
+}
+
+.commentlist-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.comment-notice-text {
+  color: gray;
+}
+
+.comment-element-container {
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: rgb(32, 32, 32);
+}

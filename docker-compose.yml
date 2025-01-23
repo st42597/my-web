@@ -9,6 +9,31 @@ services:
     ports:
       - "3000:3000"
     restart: always
+  server:
+    build:
+      context: ./server
+    container_name: server
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/mydb
+    volumes:
+      - ./server:/server
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=sh
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=mydb
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./postgreSQL/init.sql:/docker-entrypoint-initdb.d/init.sql
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -21,4 +46,5 @@ services:
       - "443:443"
     depends_on:
       - client
+      - server
     restart: always
