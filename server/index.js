@@ -12,18 +12,6 @@ const pool = new Pool({
   port: 5432,
 });
 
-const checkDatabaseConnection = async () => {
-  try {
-    const client = await pool.connect();
-    console.log("Successfully connected to PostgreSQL");
-    client.release();
-  } catch (err) {
-    console.error("Error connecting to PostgreSQL", err);
-  }
-};
-
-checkDatabaseConnection();
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -33,7 +21,7 @@ app.get("/", (req, res) => {
 app.get("/comments", async (req, res) => {
   try {
     const result = await pool.query(
-      "SELECT name, comment, created_at FROM comments ORDER BY id DESC"
+      "SELECT id, name, comment, created_at FROM comments ORDER BY id DESC"
     );
     res.json(result.rows);
   } catch (err) {
