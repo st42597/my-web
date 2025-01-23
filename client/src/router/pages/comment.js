@@ -1,12 +1,16 @@
 import "./comment.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Comment() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
+  const [openModalNumber, setOpenModalNumber] = useState(null);
+  const [deletePassword, setDeletePassword] = useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -18,6 +22,14 @@ function Comment() {
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
+  };
+
+  const toggleModal = (i) => {
+    setOpenModalNumber(i);
+  };
+
+  const handleDeletePasswordChange = (e) => {
+    setDeletePassword(e.target.value);
   };
 
   const handleCommentSubmit = async () => {
@@ -39,7 +51,7 @@ function Comment() {
       console.log("Response:", response.data);
       window.location.reload();
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
     }
   };
 
@@ -50,11 +62,54 @@ function Comment() {
     });
   }, []);
 
+  const handleDeleteComment = async () => {
+    try {
+      const response = await axios.delete(`/api/comments/${openModalNumber}`, {
+        data: {
+          password: deletePassword,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Response:", response.data);
+      window.location.reload();
+    } catch (error) {
+      // console.error("Error:", error);
+    }
+  };
+
   const commentListElement = commentList.map((comment) => (
-    <div className="comment-element-container" key={comment.id}>
-      <p>{comment.name}</p>
-      <p>{comment.comment}</p>
-      <p>{comment.created_at}</p>
+    <div className="comment-element-modal-container">
+      <div className="comment-element-container" key={comment.id}>
+        <p>{comment.name}</p>
+        <p>{comment.comment}</p>
+        <p>{comment.created_at}</p>
+        <FontAwesomeIcon
+          className="comment-delete-button"
+          size="lg"
+          icon={faXmark}
+          onClick={() => toggleModal(comment.id)}
+        />
+      </div>
+      {openModalNumber == comment.id && (
+        <div className="comment-modal-container">
+          <div
+            className="comment-modal-background"
+            onClick={() => toggleModal(null)}
+          ></div>
+          <div className="comment-modal-content">
+            <input
+              type="password"
+              placeholder="비밀번호"
+              value={deletePassword}
+              onChange={handleDeletePasswordChange}
+            ></input>
+            <button onClick={handleDeleteComment}>삭제</button>
+            <button onClick={() => toggleModal(null)}>취소</button>
+          </div>
+        </div>
+      )}
     </div>
   ));
 

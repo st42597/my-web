@@ -50,3 +50,22 @@ app.post("/comments", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+app.delete("/comments/:id", async (req, res) => {
+  const { id } = req.params;
+  const { password } = req.body;
+  try {
+    const result = await pool.query("SELECT * FROM comments WHERE id = $1", [
+      id,
+    ]);
+    if (result.rows[0].password === password) {
+      await pool.query("DELETE FROM comments WHERE id = $1", [id]);
+      res.status(204).send();
+    } else {
+      res.status(401).send("Password incorrect");
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting comment");
+  }
+});
