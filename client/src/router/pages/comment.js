@@ -84,7 +84,7 @@ function Comment() {
     <div className="comment-element-modal-container">
       <div className="comment-element-container" key={comment.id}>
         <p>{comment.name}</p>
-        <p>{comment.comment}</p>
+        <div style={{ whiteSpace: "pre-wrap" }}>{comment.comment}</div>
         <p>{comment.created_at}</p>
         <FontAwesomeIcon
           className="comment-delete-button"
