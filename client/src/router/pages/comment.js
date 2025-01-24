@@ -49,7 +49,7 @@ function Comment() {
           "Content-Type": "application/json",
         },
       });
-      console.log("Response:", response.data);
+      // console.log("Response:", response.data);
       window.location.reload();
     } catch (error) {
       // console.error("Error:", error);
