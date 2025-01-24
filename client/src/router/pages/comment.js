@@ -120,6 +120,7 @@ function Comment() {
         <div className="comment-typer">
           <div className="comment-info-container">
             <input
+              className="comment-btlr"
               type="text"
               placeholder="이름"
               value={name}
@@ -127,6 +128,7 @@ function Comment() {
             ></input>
             <div className="comment-row-border"></div>
             <input
+              className="comment-bblr"
               type="password"
               placeholder="비밀번호"
               value={password}
@@ -141,7 +143,10 @@ function Comment() {
             value={comment}
             onChange={handleCommentChange}
           />
-          <button className="comment-button" onClick={handleCommentSubmit}>
+          <button
+            className="comment-button comment-brr"
+            onClick={handleCommentSubmit}
+          >
             입력
           </button>
         </div>
