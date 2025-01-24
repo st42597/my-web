@@ -11,6 +11,7 @@ function Comment() {
   const [commentList, setCommentList] = useState([]);
   const [openModalNumber, setOpenModalNumber] = useState(null);
   const [deletePassword, setDeletePassword] = useState("");
+  const [clikedComment, setClikedComment] = useState(null);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -92,7 +93,7 @@ function Comment() {
           onClick={() => toggleModal(comment.id)}
         />
       </div>
-      {openModalNumber == comment.id && (
+      {openModalNumber === comment.id && (
         <div className="comment-modal-container">
           <div
             className="comment-modal-background"
