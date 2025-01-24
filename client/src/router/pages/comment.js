@@ -106,8 +106,10 @@ function Comment() {
               value={deletePassword}
               onChange={handleDeletePasswordChange}
             ></input>
-            <button onClick={handleDeleteComment}>삭제</button>
-            <button onClick={() => toggleModal(null)}>취소</button>
+            <div>
+              <button onClick={handleDeleteComment}>삭제</button>
+              <button onClick={() => toggleModal(null)}>취소</button>
+            </div>
           </div>
         </div>
       )}
