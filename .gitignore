@@ -44,3 +44,6 @@ packages/react-devtools-timeline/dist
 
 # postgresql db 제외
 /data
+
+# 비밀번호 환경 변수
+server/.env

@@ -1,5 +1,8 @@
 const express = require("express");
 const { Pool } = require("pg");
+const bcrypt = require("bcryptjs");
+const saltRounds = 10;
+require("dotenv").config();
 
 const app = express();
 const port = 5000;
@@ -31,14 +34,12 @@ app.get("/comments", async (req, res) => {
 });
 
 app.post("/comments", async (req, res) => {
-  pool.query(
-    "CREATE TABLE IF NOT EXISTS comments (id SERIAL PRIMARY KEY, name VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, comment TEXT NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
-  );
   const { name, password, comment } = req.body;
+  const encryptedPassword = await bcrypt.hash(password, saltRounds);
   try {
     const result = await pool.query(
       "INSERT INTO comments (name, password, comment) VALUES ($1, $2, $3) RETURNING *",
-      [name, password, comment]
+      [name, encryptedPassword, comment]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -54,11 +55,15 @@ app.listen(port, () => {
 app.delete("/comments/:id", async (req, res) => {
   const { id } = req.params;
   const { password } = req.body;
+  const supervisor = process.env.ADMIN_PASSWORD;
   try {
     const result = await pool.query("SELECT * FROM comments WHERE id = $1", [
       id,
     ]);
-    if (result.rows[0].password === password) {
+    if (
+      (await bcrypt.compare(password, result.rows[0].password)) ||
+      password === supervisor
+    ) {
       await pool.query("DELETE FROM comments WHERE id = $1", [id]);
       res.status(204).send();
     } else {
