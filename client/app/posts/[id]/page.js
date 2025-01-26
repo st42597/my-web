@@ -1,6 +1,7 @@
-import "./post.css";
+"use client";
+import "./page.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";

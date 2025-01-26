@@ -1,4 +1,5 @@
-import "./comment.css";
+"use client";
+import "./page.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +12,6 @@ function Comment() {
   const [commentList, setCommentList] = useState([]);
   const [openModalNumber, setOpenModalNumber] = useState(null);
   const [deletePassword, setDeletePassword] = useState("");
-  const [clikedComment, setClikedComment] = useState(null);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
