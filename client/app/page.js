@@ -53,7 +53,7 @@ function Home() {
           </p>
           <ul className="home-profile-links">
             <li>
-              <a href="https://github.com/st42597">Github</a>
+              <a href="https://github.com/st42597">GitHub</a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/seonghyeon-cho-a2904024b/">
