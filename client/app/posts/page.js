@@ -1,6 +1,7 @@
+"use client";
 import { useEffect, useState } from "react";
-import "./posts.css";
-import { Link } from "react-router-dom";
+import "./page.css";
+import Link from "next/link";
 function Posts() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -12,7 +13,7 @@ function Posts() {
 
   const postList = posts.map((post) => (
     <Link
-      to={`${post.url}`}
+      href={`/posts/${post.url}`}
       className="postlist-element-container"
       key={post.url}
     >

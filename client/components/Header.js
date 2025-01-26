@@ -1,23 +1,21 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function Header() {
   return (
     <header className="header-container">
       <nav className="header-nav sb">
-        <Link to="/" className="header-title header-text">
+        <Link href="/" className="header-title">
           WillKi.dev
         </Link>
         <div className="sb">
-          <Link to="/posts" className="mr-24 header-text">
+          <Link href="/posts" className="mr-24">
             Post
           </Link>
-          <Link to="comment" className="mr-24 header-text">
+          <Link href="comment" className="mr-24">
             Comment
           </Link>
-          <Link to="/about" className="header-text">
-            About
-          </Link>
+          <Link href="/about">About</Link>
         </div>
       </nav>
     </header>

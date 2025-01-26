@@ -1,6 +1,7 @@
-import "./home.css";
+"use client";
+import "./page.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function Home() {
   const [recommendedPost, setRecommendedPost] = useState([]);
@@ -26,14 +27,14 @@ function Home() {
   }, []);
 
   const recommendedPostList = recommendedPost.map((post) => (
-    <Link to={`/posts/${post.url}`} key={"recommended-" + post.url}>
+    <Link href={`/posts/${post.url}`} key={"recommended-" + post.url}>
       <h1>{post.title}</h1>
       <h2>{post.subTitle}</h2>
     </Link>
   ));
 
   const latestPostList = latestPost.map((post) => (
-    <Link to={`/posts/${post.url}`} key={"latest-" + post.url}>
+    <Link href={`/posts/${post.url}`} key={"latest-" + post.url}>
       <h1>{post.title}</h1>
       <h2>{post.subTitle}</h2>
     </Link>
