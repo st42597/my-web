@@ -1,10 +1,10 @@
-FROM node:22.12.0
+FROM node:22-alpine
 
 WORKDIR /client
 COPY package*.json ./
 RUN npm install
 COPY . .
-# RUN npm run build
+RUN npm run build
 
 # RUN npm install -g serve
 
