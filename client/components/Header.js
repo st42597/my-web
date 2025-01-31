@@ -12,7 +12,7 @@ function Header() {
           <Link href="/posts" className="mr-24">
             Post
           </Link>
-          <Link href="comment" className="mr-24">
+          <Link href="/comment" className="mr-24">
             Comment
           </Link>
           <Link href="/about">About</Link>
