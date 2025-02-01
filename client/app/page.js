@@ -1,6 +1,6 @@
 "use client";
-import "./page.css";
 import "./reset.css";
+import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -42,17 +42,17 @@ function Home() {
   ));
 
   return (
-    <div className="home-container">
-      <article className="profile-container">
-        <img className="home-profile-img" src="/profile.webp" alt="profile" />
+    <div className={styles.homeContainer}>
+      <article className={styles.profileContainer}>
+        <img className={styles.profileImg} src="/profile.webp" alt="profile" />
         <div>
           <h1>조성현, Cho SeongHyeon - WillKi</h1>
-          <p className="home-profile-description">
+          <p className={styles.profileDescription}>
             웹 개발, 인공지능, Problem Solving(알고리즘)에 관심을 갖고 있는
             대학원생입니다. <br /> 새로운 문제를 찾고 해결하는 과정을 즐기며
             스스로를 발전시키는 과정을 좋아합니다.
           </p>
-          <ul className="home-profile-links">
+          <ul className={styles.profileLinks}>
             <li>
               <a href="https://github.com/st42597">GitHub</a>
             </li>
@@ -74,11 +74,11 @@ function Home() {
       </article>
       <div>
         <h1>추천 포스트</h1>
-        <div className="home-postlist-container">{recommendedPostList}</div>
+        <div className={styles.postlistContainer}>{recommendedPostList}</div>
       </div>
       <div>
         <h1>최신 포스트</h1>
-        <div className="home-postlist-container">{latestPostList}</div>
+        <div className={styles.postlistContainer}>{latestPostList}</div>
       </div>
     </div>
   );

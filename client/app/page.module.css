@@ -1,21 +1,21 @@
-.home-container {
+.homeContainer {
   display: flex;
   flex-direction: column;
   gap: 60px;
 }
 
-.profile-container {
+.profileContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.profile-container h1 {
+.profileContainer h1 {
   margin: 0;
   font-size: 32px;
 }
 
-.home-profile-img {
+.profileImg {
   margin: 0px 40px 0px 0px;
   width: 200px;
   height: 200px;
@@ -23,7 +23,7 @@
   object-fit: cover;
 }
 
-.home-profile-links {
+.profileLinks {
   list-style-type: none;
   display: flex;
   padding: 0;
@@ -31,20 +31,20 @@
   gap: 20px;
 }
 
-.home-profile-links li a {
+.profileLinks li a {
   color: rgb(128, 194, 164);
   text-decoration: none;
 }
 
-.home-profile-links li a:hover {
+.profileLinks li a:hover {
   color: rgb(128, 194, 164, 80%);
 }
 
-.home-profile-description {
+.profileDescription {
   line-height: 1.8;
 }
 
-.home-postlist-container {
+.postlistContainer {
   display: flex;
   justify-content: flex-start;
   width: 100%;
@@ -52,7 +52,7 @@
   gap: 40px;
 }
 
-.home-postlist-container a {
+.postlistContainer a {
   display: block;
   padding: 10px 20px;
   width: 200px;
@@ -62,16 +62,16 @@
   border-radius: 10px;
 }
 
-.home-postlist-container a:hover {
+.postlistContainer a:hover {
   background-color: rgb(24, 24, 24);
 }
 
-.home-postlist-container h1 {
+.postlistContainer h1 {
   font-size: 1.4rem;
   font-weight: 550;
 }
 
-.home-postlist-container h2 {
+.postlistContainer h2 {
   font-size: 1.1rem;
   font-weight: 400;
 }
