@@ -81,8 +81,8 @@ function Comment() {
   };
 
   const commentListElement = commentList.map((comment) => (
-    <div className="comment-element-modal-container">
-      <div className="comment-element-container" key={comment.id}>
+    <div className="comment-element-modal-container" key={comment.id}>
+      <div className="comment-element-container">
         <p>{comment.name}</p>
         <div style={{ whiteSpace: "pre-wrap" }}>{comment.comment}</div>
         <p>{comment.created_at}</p>
