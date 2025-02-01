@@ -1,6 +1,6 @@
 "use client";
+import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import "./page.css";
 import Link from "next/link";
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -14,7 +14,7 @@ function Posts() {
   const postList = posts.map((post) => (
     <Link
       href={`/posts/${post.url}`}
-      className="postlist-element-container"
+      className={styles.postlistElementContainer}
       key={post.url}
     >
       <h1>{post.title}</h1>
@@ -22,7 +22,7 @@ function Posts() {
     </Link>
   ));
 
-  return <div className="postlist-container">{postList}</div>;
+  return <div className={styles.postlistContainer}>{postList}</div>;
 }
 
 export default Posts;
