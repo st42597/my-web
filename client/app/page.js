@@ -72,13 +72,13 @@ function Home() {
           </ul>
         </div>
       </article>
-      <div>
+      <div className={styles.postlistContainer}>
         <h1>추천 포스트</h1>
-        <div className={styles.postlistContainer}>{recommendedPostList}</div>
+        <div className={styles.postElementContainer}>{recommendedPostList}</div>
       </div>
       <div>
         <h1>최신 포스트</h1>
-        <div className={styles.postlistContainer}>{latestPostList}</div>
+        <div className={styles.postElementContainer}>{latestPostList}</div>
       </div>
     </div>
   );
