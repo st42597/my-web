@@ -1,5 +1,5 @@
 "use client";
-import "./page.css";
+import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Markdown from "react-markdown";
@@ -22,7 +22,7 @@ function Post() {
   }, [id]);
 
   return (
-    <div className="post-container">
+    <div className={styles.postContainer}>
       <Markdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}

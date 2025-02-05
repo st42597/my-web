@@ -1,5 +1,5 @@
 "use client";
-import "./page.css";
+import styles from "./page.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -81,25 +81,25 @@ function Comment() {
   };
 
   const commentListElement = commentList.map((comment) => (
-    <div className="comment-element-modal-container" key={comment.id}>
-      <div className="comment-element-container">
+    <div className={styles.commentElementModalContainer} key={comment.id}>
+      <div className={styles.commentElementContainer}>
         <p>{comment.name}</p>
         <div style={{ whiteSpace: "pre-wrap" }}>{comment.comment}</div>
         <p>{comment.created_at}</p>
         <FontAwesomeIcon
-          className="comment-delete-button"
+          className={styles.commentDeleteButton}
           size="lg"
           icon={faXmark}
           onClick={() => toggleModal(comment.id)}
         />
       </div>
       {openModalNumber === comment.id && (
-        <div className="comment-modal-container">
+        <div className={styles.commentModalContainer}>
           <div
-            className="comment-modal-background"
+            className={styles.commentModalBackground}
             onClick={() => toggleModal(null)}
           ></div>
-          <div className="comment-modal-content">
+          <div className={styles.commentModalContent}>
             <input
               type="password"
               placeholder="비밀번호"
@@ -117,48 +117,48 @@ function Comment() {
   ));
 
   return (
-    <div className="comment-continer">
+    <div className={styles.commentContainer}>
       <div>
         <h1>사이트에 대한 피드백, 저에 대한 메시지 모두 환영합니다.</h1>
-        <div className="comment-typer">
-          <div className="comment-info-container">
+        <div className={styles.commentTyper}>
+          <div className={styles.commentInfoContainer}>
             <input
-              className="comment-btlr"
+              className={styles.commentBtlr}
               type="text"
               placeholder="이름"
               value={name}
               onChange={handleNameChange}
             ></input>
-            <div className="comment-row-border"></div>
+            <div className={styles.commentRowBorder}></div>
             <input
-              className="comment-bblr"
+              className={styles.commentBblr}
               type="password"
               placeholder="비밀번호"
               value={password}
               onChange={handlePasswordChange}
             ></input>
           </div>
-          <div className="comment-col-border"></div>
+          <div className={styles.commentColBorder}></div>
           <textarea
-            className="comment-textarea"
+            className={styles.commentTextarea}
             type="text"
             placeholder="코멘트를 입력하세요"
             value={comment}
             onChange={handleCommentChange}
           />
           <button
-            className="comment-button comment-brr"
+            className={`${styles.commentButton} ${styles.commentBrr}`}
             onClick={handleCommentSubmit}
           >
             입력
           </button>
         </div>
-        <p className="comment-notice-text">
+        <p className={styles.commentNoticeText}>
           * 비밀번호는 입력한 코멘트를 삭제하는데 사용됩니다.
         </p>
       </div>
       <h1>Comment</h1>
-      <div className="commentlist-container">{commentListElement}</div>
+      <div className={styles.commentlistContainer}>{commentListElement}</div>
     </div>
   );
 }

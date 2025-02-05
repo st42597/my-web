@@ -1,39 +1,39 @@
-.post-container h1 {
+.postContainer h1 {
   font-weight: 600;
   font-size: 2.4rem;
 }
 
-.post-container h2 {
+.postContainer h2 {
   font-weight: 500;
   font-size: 1.8rem;
 }
 
-.post-container h3 {
+.postContainer h3 {
   font-weight: 400;
   font-size: 1.4rem;
 }
 
-.post-container img {
+.postContainer img {
   width: 100%;
 }
 
-.post-container img[alt="badge"] {
+.postContainer img[alt="badge"] {
   width: 160px;
 }
 
-.post-container img[alt="github-card"] {
+.postContainer img[alt="github-card"] {
   width: 442px;
 }
 
-.post-container code {
+.postContainer code {
   color: rgb(128, 194, 164);
 }
 
-.post-container a {
+.postContainer a {
   color: rgb(128, 194, 164);
   text-decoration: none;
 }
 
-.post-container a:hover {
+.postContainer a:hover {
   color: rgb(128, 194, 164, 80%);
 }
