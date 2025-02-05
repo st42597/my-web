@@ -64,19 +64,27 @@ function Comment() {
   };
 
   useEffect(() => {
-    const params = {
-      currentPage: currentPage,
-      itemsPerPage: 10,
+    const fetchComments = async () => {
+      const params = {
+        currentPage: currentPage,
+        itemsPerPage: 10,
+      };
+      try {
+        const response = await axios
+          .get("/api/comments", {
+            params: params,
+          })
+          .then((response) => {
+            // console.log("Response:", response.data);
+            setTotalPage(response.data.totalPages);
+            setCommentList(response.data.currentItems);
+          });
+        window.scrollTo(0, 0);
+      } catch (error) {
+        // console.error("Error:", error);
+      }
     };
-    axios
-      .get("/api/comments", {
-        params: params,
-      })
-      .then((response) => {
-        // console.log("Response:", response.data);
-        setTotalPage(response.data.totalPages);
-        setCommentList(response.data.currentItems);
-      });
+    fetchComments();
   }, [currentPage]);
 
   const handleDeleteComment = async () => {
