@@ -149,3 +149,45 @@
   color: white;
   cursor: pointer;
 }
+
+.paginateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.paginateNext {
+}
+
+.paginatePrevious {
+}
+
+.paginateBreak {
+}
+
+.pagenatePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.pagenatePage:hover {
+  background-color: rgb(32, 32, 32);
+}
+
+.pagenatePageLink {
+}
+
+.paginateActive {
+  background-color: rgb(24, 24, 24);
+}
+
+.paginateActiveLink {
+  color: rgb(128, 194, 164);
+}

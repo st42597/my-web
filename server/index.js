@@ -22,11 +22,22 @@ app.get("/", (req, res) => {
 });
 
 app.get("/comments", async (req, res) => {
+  const { currentPage, itemsPerPage } = req.query;
   try {
     const result = await pool.query(
       "SELECT id, name, comment, created_at FROM comments ORDER BY id DESC"
     );
-    res.json(result.rows);
+    const totalPages = Math.ceil(result.rows.length / itemsPerPage);
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentItems = result.rows.slice(startIndex, endIndex);
+
+    const data = {
+      totalPages: totalPages,
+      currentItems: currentItems,
+    };
+
+    res.json(data);
   } catch (err) {
     console.error(err);
     res.status(500).send("Error retrieving comment");

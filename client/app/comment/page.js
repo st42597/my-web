@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import ReactPaginate from "react-paginate";
 
 function Comment() {
   const [name, setName] = useState("");
@@ -12,6 +13,8 @@ function Comment() {
   const [commentList, setCommentList] = useState([]);
   const [openModalNumber, setOpenModalNumber] = useState(null);
   const [deletePassword, setDeletePassword] = useState("");
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPage, setTotalPage] = useState(0);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -31,6 +34,10 @@ function Comment() {
 
   const handleDeletePasswordChange = (e) => {
     setDeletePassword(e.target.value);
+  };
+
+  const handlePageChange = (e) => {
+    setCurrentPage(e.selected);
   };
 
   const handleCommentSubmit = async () => {
@@ -57,11 +64,20 @@ function Comment() {
   };
 
   useEffect(() => {
-    axios.get("/api/comments").then((response) => {
-      console.log("Response:", response.data);
-      setCommentList(response.data);
-    });
-  }, []);
+    const params = {
+      currentPage: currentPage,
+      itemsPerPage: 10,
+    };
+    axios
+      .get("/api/comments", {
+        params: params,
+      })
+      .then((response) => {
+        // console.log("Response:", response.data);
+        setTotalPage(response.data.totalPages);
+        setCommentList(response.data.currentItems);
+      });
+  }, [currentPage]);
 
   const handleDeleteComment = async () => {
     try {
@@ -159,6 +175,23 @@ function Comment() {
       </div>
       <h1>Comment</h1>
       <div className={styles.commentlistContainer}>{commentListElement}</div>
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageChange}
+        pageRangeDisplayed={3}
+        pageCount={totalPage}
+        previousLabel="< prev"
+        renderOnZeroPageCount={null}
+        containerClassName={styles.paginateContainer}
+        nextClassName={styles.paginateNext}
+        previousClassName={styles.paginatePrevious}
+        breakClassName={styles.paginateBreak}
+        pageClassName={styles.pagenatePage}
+        pageLinkClassName={styles.pagenatePageLink}
+        activeClassName={styles.paginateActive}
+        activeLinkClassName={styles.paginateActiveLink}
+      />
     </div>
   );
 }
