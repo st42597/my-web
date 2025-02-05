@@ -157,6 +157,7 @@
   list-style: none;
   gap: 10px;
   cursor: pointer;
+  padding: 0;
 }
 
 .paginateNext {
