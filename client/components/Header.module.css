@@ -26,11 +26,6 @@
   margin-right: 24px;
 }
 
-.headerText {
-  color: white;
-  text-decoration: none;
-}
-
 .headerText:hover {
   color: rgb(128, 194, 164);
 }
