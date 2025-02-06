@@ -1,7 +1,8 @@
-import "./Footer.css";
+import styles from "./Footer.module.css";
+
 function Footer() {
   return (
-    <footer className="footer-container">
+    <footer className={styles.footerContainer}>
       <ul>
         <li> Willki.dev</li>
         <li>

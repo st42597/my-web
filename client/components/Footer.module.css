@@ -1,4 +1,4 @@
-.footer-container {
+.footerContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   border-top: 0.4px solid lightgray;
 }
 
-.footer-container ul {
+.footerContainer ul {
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
   list-style: none;
 }
 
-.footer-container a {
+.footerContainer a {
   color: rgb(128, 194, 164);
   text-decoration: none;
 }

@@ -1,10 +1,10 @@
-.header-container {
+.headerContainer {
   width: 100%;
   height: 50px;
   border-bottom: 0.4px solid lightgray;
 }
 
-.header-nav {
+.headerNav {
   display: flex;
   margin: 0 auto;
   width: 90%;
@@ -12,7 +12,7 @@
   height: 100%;
 }
 
-.header-title {
+.headerTitle {
   font-size: 1.5rem;
 }
 
@@ -22,21 +22,21 @@
   align-items: center;
 }
 
-.mr-24 {
+.mr24 {
   margin-right: 24px;
 }
 
-.header-text {
+.headerText {
   color: white;
   text-decoration: none;
 }
 
-.header-text:hover {
+.headerText:hover {
   color: rgb(128, 194, 164);
 }
 
 @media (max-width: 768px) {
-  .header-nav {
+  .headerNav {
     width: 95%;
   }
 }
