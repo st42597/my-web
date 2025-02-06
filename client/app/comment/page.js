@@ -143,7 +143,7 @@ function Comment() {
   return (
     <div className={styles.commentContainer}>
       <div>
-        <h1>사이트에 대한 피드백, 저에 대한 메시지 모두 환영합니다.</h1>
+        <h1 style={{ marginTop: 0 }}>사이트에 대한 피드백, 저에 대한 메시지 모두 환영합니다.</h1>
         <div className={styles.commentTyper}>
           <div className={styles.commentInfoContainer}>
             <input
