@@ -76,7 +76,7 @@ function Home() {
         <h1>추천 포스트</h1>
         <div className={styles.postElementContainer}>{recommendedPostList}</div>
       </div>
-      <div>
+      <div className={styles.postlistContainer}>
         <h1>최신 포스트</h1>
         <div className={styles.postElementContainer}>{latestPostList}</div>
       </div>

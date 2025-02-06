@@ -81,11 +81,11 @@
 }
 
 @media (max-width: 768px) {
-  .home-profile-img {
+  .profileImg {
     display: none;
   }
 
-  .home-postlist-container a {
+  .postlistContainer a {
     width: 100%;
   }
 }
