@@ -1,5 +1,4 @@
 "use client";
-import "./reset.css";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
