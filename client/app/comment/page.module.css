@@ -1,3 +1,7 @@
+.commentContainer h1 {
+  font-size: 1.6rem;
+}
+
 .commentTyper {
   display: flex;
   justify-content: space-between;
