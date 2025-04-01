@@ -6,11 +6,15 @@
   background-color: rgb(24, 24, 24);
 }
 
+.commentTyper input::placeholder {
+  font-size: 1rem;
+}
+
 .commentInfoContainer {
   display: flex;
   flex-direction: column;
   width: 120px;
-  min-width: 70px;
+  min-width: 80px;
 }
 
 .commentInfoContainer input {
