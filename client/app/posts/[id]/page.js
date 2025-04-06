@@ -24,7 +24,6 @@ function Post(params) {
 
   return (
     <div className={styles.postContainer}>
-      <ViewCounter slug={id} />
       <Markdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}
@@ -41,6 +40,12 @@ function Post(params) {
               </code>
             );
           },
+          h1: ({ node, ...props }) => (
+            <>
+              <h1 {...props} />
+              <ViewCounter slug={id} />
+            </>
+          ),
         }}
       >
         {post}
