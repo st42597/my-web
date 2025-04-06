@@ -6,7 +6,6 @@ function ViewCounter({ slug }, enableCount = true) {
   const [viewCount, setViewCount] = useState();
 
   useEffect(() => {
-    console.log(slug);
     if (enableCount) {
       const fetchViewCount = async () => {
         try {
