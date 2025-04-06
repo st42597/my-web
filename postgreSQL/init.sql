@@ -6,3 +6,12 @@ CREATE TABLE comments
   comment TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE post_views (
+  id SERIAL PRIMARY KEY,
+  slug VARCHAR(255) NOT NULL,
+  ip_address VARCHAR(45) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE UNIQUE INDEX unique_slug_ip ON post_views (slug, ip_address);
