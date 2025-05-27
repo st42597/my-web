@@ -9,4 +9,4 @@
 - Frontend: React
 - Backend: Node.js(Express)
 - Proxy Server: Nginx
-- Hosting: CloueFlare
+- Hosting: CloudFlare

@@ -22,7 +22,7 @@ function About() {
         <li>Frontend: React</li>
         <li>Backend: Node.js(Express)</li>
         <li>Proxy Server: Nginx</li>
-        <li>Hosting: CloueFlare</li>
+        <li>Hosting: CloudFlare</li>
       </ul>
     </div>
   );
