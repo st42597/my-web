@@ -77,7 +77,16 @@ function Comment() {
           .then((response) => {
             // console.log("Response:", response.data);
             setTotalPage(response.data.totalPages);
-            setCommentList(response.data.currentItems);
+            const formattedComments = response.data.currentItems.map(
+              (item) => ({
+                ...item,
+                formatted_created_at: new Date(item.created_at).toLocaleString(
+                  "ko-KR",
+                  { timeZone: "Asia/Seoul" }
+                ),
+              })
+            );
+            setCommentList(formattedComments);
           });
         window.scrollTo(0, 0);
       } catch (error) {
@@ -110,7 +119,7 @@ function Comment() {
         <p>{comment.name}</p>
         <div style={{ whiteSpace: "pre-wrap" }}>{comment.comment}</div>
         <div className={styles.commentLastRow}>
-          <span>{comment.created_at}</span>
+          <span>{comment.formatted_created_at}</span>
         </div>
         <FontAwesomeIcon
           className={styles.commentDeleteButton}
