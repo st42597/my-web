@@ -83,6 +83,13 @@
   background-color: rgb(32, 32, 32);
 }
 
+.commentLastRow {
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .commentDeleteButton {
   position: absolute;
   top: 15px;

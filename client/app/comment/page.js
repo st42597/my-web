@@ -109,7 +109,9 @@ function Comment() {
       <div className={styles.commentElementContainer}>
         <p>{comment.name}</p>
         <div style={{ whiteSpace: "pre-wrap" }}>{comment.comment}</div>
-        <p>{comment.created_at}</p>
+        <div className={styles.commentLastRow}>
+          <span>{comment.created_at}</span>
+        </div>
         <FontAwesomeIcon
           className={styles.commentDeleteButton}
           size="lg"
@@ -143,7 +145,9 @@ function Comment() {
   return (
     <div className={styles.commentContainer}>
       <div>
-        <h1 style={{ marginTop: 0 }}>사이트에 대한 피드백, 저에 대한 메시지 모두 환영합니다.</h1>
+        <h1 style={{ marginTop: 0 }}>
+          사이트에 대한 피드백, 저에 대한 메시지 모두 환영합니다.
+        </h1>
         <div className={styles.commentTyper}>
           <div className={styles.commentInfoContainer}>
             <input
