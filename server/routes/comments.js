@@ -11,9 +11,11 @@ router.get("/", async (req, res) => {
     const result = await db.query(
       "SELECT id, name, comment, created_at FROM comments ORDER BY id DESC"
     );
-    const totalPages = Math.ceil(result.rows.length / itemsPerPage);
-    const startIndex = currentPage * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const totalPages = Math.ceil(
+      Number(result.rows.length) / Number(itemsPerPage)
+    );
+    const startIndex = Number(currentPage) * Number(itemsPerPage);
+    const endIndex = startIndex + Number(itemsPerPage);
     const currentItems = result.rows.slice(startIndex, endIndex);
 
     const data = {
