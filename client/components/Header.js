@@ -1,4 +1,3 @@
-import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 import styles from "./Header.module.css";
 import Link from "next/link";
 
