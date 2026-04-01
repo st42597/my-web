@@ -8,7 +8,6 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
-import "katex/dist/katex.min.css";
 import ViewCounter from "@/components/ViewCounter";
 
 function Post(params) {
