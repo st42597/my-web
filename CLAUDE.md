@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WillKi.dev is a personal blog/portfolio site with a Next.js 15 frontend, Express.js backend, and PostgreSQL database, containerized with Docker Compose.
+WillKi.dev is a personal blog/portfolio site with a Next.js 15 frontend, Spring Boot (Kotlin) backend, and PostgreSQL database, containerized with Docker Compose.
 
 ## Development Commands
 
@@ -23,10 +23,12 @@ npm run lint    # ESLint
 npm start       # Production server
 ```
 
-### Server (Express)
+### Server (Spring Boot / Kotlin)
 ```bash
-cd server
-node index.js   # Run on port 5000
+cd server-kotlin
+./gradlew bootRun   # Run on port 5000 (requires Java 21)
+./gradlew bootJar   # Build fat JAR
+./gradlew test      # Run tests
 ```
 
 ### Database Initialization
@@ -38,7 +40,8 @@ curl http://localhost:5000/api/initDB   # Creates tables if not exists
 
 ### Monorepo Structure
 - `client/` — Next.js 15 / React 19 frontend
-- `server/` — Express.js backend
+- `server-kotlin/` — Spring Boot 3 / Kotlin backend (replaces `server/`)
+- `server/` — Legacy Express.js backend (superseded)
 - `postgreSQL/init.sql` — DB schema initialization
 - `data/` — PostgreSQL persistent volume (Docker)
 
@@ -49,11 +52,22 @@ Posts are **file-based** (no CMS):
 - To add a post: add entry to JSON + create the markdown file
 
 ### Backend API (port 5000)
-- `POST /api/posts/:slug/views` — track post view by IP (deduped)
-- `GET /api/comments` — paginated comments (`?currentPage=0&itemsPerPage=10`)
-- `POST /api/comments` — create comment (password stored as bcrypt hash)
-- `DELETE /api/comments/:id` — delete comment (requires password match)
-- `GET /api/initDB` — initialize DB tables
+- `POST /posts/{slug}/views` — track post view by IP (deduped)
+- `GET /comments?currentPage=0&itemsPerPage=10` — paginated comments
+- `POST /comments` — create comment (password stored as BCrypt hash)
+- `DELETE /comments/{id}` — delete comment (requires password match; body: `{"password":"..."}`)
+- `GET /initDB` — initialize DB tables
+
+### server-kotlin Layer Architecture
+```
+controller/   — HTTP request/response handling
+facade/       — Orchestration between controllers and services
+service/      — Business logic
+repository/   — JPA data access (Spring Data)
+entity/       — JPA entities (Comment, PostView)
+dto/          — Request/response data classes
+config/       — SecurityConfig (BCrypt, CSRF disabled), CorsConfig
+```
 
 ### Database
 PostgreSQL with two tables:
@@ -72,6 +86,5 @@ The client calls the Express API directly via Axios. In Docker, the server is on
 
 ## Environment Variables
 Server expects these (set in docker-compose.yml or `.env`):
-- `DATABASE_URL` — PostgreSQL connection string
-- `NODE_ENV`
-- `ADMIN_PASSWORD` — for admin-level comment deletion
+- `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` — PostgreSQL connection
+- `ADMIN_PASSWORD` — for admin-level comment deletion (bypasses bcrypt check)
