@@ -1,11 +1,11 @@
-FROM gradle:8.7.0-jdk21-alpine AS builder
+FROM gradle:8.7.0-jdk21-jammy AS builder
 
 WORKDIR /app
 
 COPY build.gradle.kts settings.gradle.kts ./
 COPY src ./src
 
-RUN gradle bootJar --no-daemon
+RUN gradle bootJar --no-daemon -Dorg.gradle.native=false
 
 FROM eclipse-temurin:21-jre-alpine
 
