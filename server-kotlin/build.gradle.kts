@@ -27,6 +27,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.security:spring-security-crypto")
     runtimeOnly("org.postgresql:postgresql")
+    implementation("me.paulschwarz:spring-dotenv:4.0.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
