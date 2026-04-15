@@ -5,6 +5,8 @@ import dev.willki.dto.CommentResponse
 import dev.willki.dto.CreateCommentRequest
 import dev.willki.entity.Comment
 import dev.willki.repository.CommentRepository
+import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Sort
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -16,16 +18,12 @@ class CommentService(
 ) {
     @Transactional(readOnly = true)
     fun getComments(currentPage: Int, itemsPerPage: Int): CommentPageResponse {
-        val allComments = commentRepository.findAllByOrderByIdDesc()
-        val totalPages = Math.ceil(allComments.size.toDouble() / itemsPerPage).toInt()
-        val startIndex = currentPage * itemsPerPage
-        val endIndex = minOf(startIndex + itemsPerPage, allComments.size)
-        val currentItems = if (startIndex < allComments.size) {
-            allComments.subList(startIndex, endIndex).map { it.toResponse() }
-        } else {
-            emptyList()
-        }
-        return CommentPageResponse(totalPages = totalPages, currentItems = currentItems)
+        val pageable = PageRequest.of(currentPage, itemsPerPage, Sort.by("id").descending())
+        val page = commentRepository.findAllByOrderByIdDesc(pageable)
+        return CommentPageResponse(
+            totalPages = page.totalPages,
+            currentItems = page.content.map { it.toResponse() }
+        )
     }
 
     @Transactional
