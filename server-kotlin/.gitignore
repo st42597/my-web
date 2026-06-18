@@ -1,9 +1,7 @@
 # Gradle
 .gradle/
 build/
-gradle/
-gradlew
-gradlew.bat
+# wrapper(gradle/, gradlew, gradlew.bat)는 커밋해야 로컬/CI 빌드가 재현 가능하므로 추적한다
 
 # IntelliJ IDEA
 .idea/
